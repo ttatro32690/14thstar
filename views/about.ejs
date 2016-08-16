@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1> Our Story </h1>
+        <% var paragraphs = ""; %>
+        <% star.about.forEach(function(paragraph, indexVal){ %>
+            <% paragraphs = paragraphs + "<p>" + paragraph + "</p>"; %>
+            <% if((indexVal + 1) % 4 === 0 || star.about.length - 1 === indexVal){ %>
+                <div class="row">
+                    <div class="col-md-5">
+                        <%- paragraphs %>
+                    </div>
+                    <div class="col-md-7">
+                        <% if(indexVal < 4){ %>
+                            <img class="thumbnail img-fluid" src="http://www.14thstarbrewing.com/wp-content/uploads/2012/02/DSC03386-1024x768.jpg">  
+                        <% } else { %>
+                            <img class="thumbnail img-fluid" src="http://www.14thstarbrewing.com/wp-content/uploads/2012/02/line-up-1024x768.jpg">  
+                        <% } %>
+                    </div>
+                </div>
+            <% paragraphs = ""; %>
+            <% } %>
+        
+        <% }); %>
+    </div>
+</div>
+
+<% include ./partials/footer %>

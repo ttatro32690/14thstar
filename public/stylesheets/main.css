@@ -1,0 +1,78 @@
+/*  Primary: 500: #009688*/
+
+
+/*  Secondary: 700: #00776A*/
+
+
+/*  Accent: 300: #20A294*/
+
+
+/*  Accent: Alternate 500: #F16600*/
+
+body {
+    font-family: Source Sans Pro;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 > span{
+    display: block;
+}
+
+.thumbnail{
+    padding:0;
+}
+
+.navbar-header{
+    width: 25%;
+}
+
+.navbar-default {
+    background: transparent;
+    border: none;
+}
+
+.navbar-btn,
+.navbar-btn:focus,
+.navbar-btn:active,
+.navbar-btn:hover,
+.navbar-btn:link{
+    border: none;
+    background: transparent;
+    outline: 0;
+    float: right;
+}
+
+.fadeContent{
+    opacity: .3;
+}
+
+#list{
+    top: 50px;
+    display: none;
+    position: fixed;
+    z-index: 10;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.row {
+    margin:0;
+}
+
+#menu_button span{
+    border-top: 2px solid black;
+    display: block;
+    width: 25px;
+    margin: 3px;
+}
+
+#title{
+    text-align: center;
+}
+
+#content{
+    display: none;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= star.name %> | <%= star.motto %></title>
+	
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <link href="bower_components/bootstrap/dist//css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><%= star.name %></a>
+        <button id="menu_button" type="button" class="btn navbar-btn">
+            <i id="menu_icon" class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+    </div>
+  </div>
+</nav>
+
+<!--Menu Items-->
+<div id="list" class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span><%= star.motto %></span>
+           <button id="close_menu_button" class="btn btn-xs btn-danger pull-right">X</button>
+        </div>
+        <div class="list-group">
+            <a href="about" class="list-group-item">About Us</a>
+            <a href="beer" class="list-group-item">Our Selection</a>
+            <a href="visit" class="list-group-item">Visit Us</a>
+            <a href="events" class="list-group-item">Events</a>
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-2">
+                        <a href="<%= star.twitterUrl %>"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="<%= star.facebookUrl %>"><i class="fa fa-facebook" aria-hidden="true"></i></a>    
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="<%= star.instaUrl %>"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-xs-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="content">
+

@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<form class="form-horizontal" action="/events/<%= event._id %>?_method=PUT" method="POST">
+	<div class="container">
+		<div class="form-group">
+			<label for="name" class="col-sm-2 control-label">Event Title</label>
+	        <div class="col-sm-10 container"><input id="name" class="form-control" type="text" name="event[name]" value="<%= event.name %>"></div>
+		</div>
+		<div class="form-group">
+	        <label for="image" class="col-sm-2 control-label">Image URL</label>
+	        <div class="col-sm-10"><input id="image" class="form-control" type="url" name="event[image]" value="<%= event.image %>"></div>
+		</div>
+		<div class="form-group">		
+	        <label for="date" class="col-sm-2 control-label">Date</label>
+	        <div class="col-sm-10"><input id="date" class="form-control" type="date" name="event[date]" value="<%= moment(event.date).format("YYYY-MM-DD") %>"></div>
+		</div>
+		<div class="form-group">
+	        <label for="location" class="col-sm-2 control-label">Location</label>
+	        <div class="col-sm-10"><input id="location" class="form-control" type="text" name="event[location]" value="<%= event.location %>"></div>
+	    </div>
+		<div class="form-group">
+	        <label for="begin-tm" class="col-sm-2 control-label">Begin Time</label>
+	        <div class="col-sm-10"><input id="begin-tm" class="form-control" type="time" name="event[beginTm]" value="<%= event.beginTm %>"></div>
+	    </div>
+		<div class="form-group">
+	        <label for="end-tm" class="col-sm-2 control-label">End Time</label>
+	        <div class="col-sm-10"><input id="end-tm" class="form-control" type="time" name="event[endTm]" value="<%= event.endTm %>"></div>
+		</div>
+		<div class="form-group">
+	        <label for="description" class="col-sm-2 control-label">Description</label>
+	        <div class="col-sm-10"><textarea id="description" class="form-control" name="event[description]"><%= event.description %></textarea></div>
+	    </div>
+	    <div class="form-group">
+	        <button class="btn btn-large btn-default btn-block btn-primary">Update Event</button>
+		</div>
+	</div>
+</form>
+
+<% include ../partials/footer %>
