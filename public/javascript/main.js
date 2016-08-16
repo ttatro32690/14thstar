@@ -1,8 +1,8 @@
 var $;
 
 $(document).ready(function() {
-	// initPage();
-	noAnimationInit();
+	initPage();
+	//noAnimationInit();
 	
 	$("#menu_button").on("click", menuOnClick);
 	$("#close_menu_button").on("click", menuOnClick);

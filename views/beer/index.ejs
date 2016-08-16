@@ -3,6 +3,29 @@
 <div class="container-fluid">
 	<div class="jumbotron">
 		<h1>Our Selection</h1>
+		<a href="/beer/new" class="btn btn-default">New Beer</a>
+	</div>
+</div>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<% beers.forEach(function(beer){ %>
+		
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading"><%= beer.name %>
+				<button class="btn btn-default">Edit</button>
+				<button class="btn btn-default">Delete</button>
+				<button class="btn btn-default">View</button>
+				</div>
+				<div class="panel-body">
+				<img src="<%= beer.image %>">
+				</div>
+			</div>
+		</div>
+		
+		<% }); %>
 	</div>
 </div>
 

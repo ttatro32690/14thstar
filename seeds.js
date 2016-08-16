@@ -1,7 +1,8 @@
 var Star = require("./models/star");
 var Event = require("./models/event");
+var Beer = require("./models/beer");
 
-var data = {
+var starData = {
     name: "14th Star Brewing Company",
     motto: "A New Craft Brew for the 802",
     about: ["14th Star Brewing started as a daydream in the mountains of Eastern Afghanistan. Seriously, we couldn’t make that up.", "While deployed overseas, soldiers have plenty of time to contemplate two things: Beer and getting out of the Army. Steve and his buddies were doing just that in 2010 when the idea came to the long-time homebrewers: Why not open a brewery, preparing for the day we can retire from the Army?", "Thus started the journey from a handwritten business plan in the back of a notebook to fully-licensed craft brewery.", "While new to the brewing industry, 14th Star understands that it is a small part of a proud craft brewing community in Vermont and of the Vermont artisan community as a whole. We strive to uphold the craftsmanship, attention to detail, balanced flavor, and hometown responsibility that are the hallmarks of the Vermont craft scene.", "Currently located on Lower Newton St in St Albans with a capacity of 850 barrels a year, 14th Star is undergoing some pretty massive expansion plans; in 2014, the brewery will move to the old St Albans Bowling Alley – 16,000 sqft in which to increase production by roughly 10x!", "The majority of this expanded capacity will be to craft our flagship beer: Valor Ale – a hoppy amber ale with a portion of the proceeds benefitting the Purple Hearts Reunited Foundation, returning lost or stolen medals of valor to the servicemen and women who earned them. The rest will go to seasonal offerings like our Maple City Breakfast Stout and to original recipe beers that will be offered by the pint in the taproom.", "Whether you’re having a pint of Valor Ale at a local restaurant or pub or stopping by the brewery for a growler fill, you will be able to taste the pride and effort that goes into making 14th Star beers. We know what hard work, attention to detail, and creativity can produce on the field of battle – we want to bring that to your glass.", "Thank you for supporting 14th Star Brewing. Cheers!"],
@@ -21,6 +22,35 @@ var data = {
     facebookUrl: "https://www.facebook.com/14thstarbrewing/",
     instaUrl: "https://www.instagram.com/explore/locations/33283739/?hl=en"
 };
+
+var beerData = [
+    {
+    	name: "Tribute",
+    	image: "http://www.14thstarbrewing.com/wp-content/uploads/2014/01/Tribute-Can.png",
+    	ibu: "65",
+    	abv: "8.4%",
+    	style: "Double IPA",
+    	availability: "Always",
+    	description: "Our Tribute Double IPA is a celebration of hops, pure and simple. A simple and smooth malt base serves as the stage for the hops to perform. Tribute has a beautiful golden color, an aroma brimming with citrusy hops, and a deliciously smooth hop flavor and dry finish."
+    },{
+    	name: "Valor",
+    	image: "http://www.14thstarbrewing.com/wp-content/uploads/2013/04/Valro-Can.png",
+    	ibu: "40",
+    	abv: "5.4%",
+    	style: "American Amber Ale",
+    	availability: "Always",
+    	description: "Our Valor Ale is a hoppy amber ale with refreshing hop aroma and taste. A portion of the proceeds support the Purple Hearts Reunited Foundation, returning medals of valor to the servicemen and women who earned them."
+    },{
+    	name: "Maple Breakfast Stout",
+    	image: "http://www.14thstarbrewing.com/wp-content/uploads/2014/01/Maple-Breakfast-Stout-Can.png",
+    	ibu: "20",
+    	abv: "6.8%",
+    	style: "Stout",
+    	availability: "Always",
+    	description: "In keeping with my Pépère Ferland’s tradition of craftsmanship we brewed our Maple Breakfast Stout with 100% pure Vermont Maple Syrup, local St. Albans Honey, and coffee. We hope you enjoy this dark and delicious beer."        
+    }
+    
+    ];
 
 var eventData = [
     {
@@ -52,7 +82,7 @@ function seedDB(){
         }
     });
     
-    Star.create(data,function(err,star){
+    Star.create(starData,function(err,star){
         if(err){
             console.log(err);
         } else {
@@ -76,6 +106,25 @@ function seedDB(){
               console.log("Event " + createdEvent.name + " Created");
           }
        });
+    });
+    
+    Beer.remove({},function(err){
+       if(err){
+           console.log(err);
+       } else {
+           console.log("Beers Removed");
+       }
+       
+    beerData.forEach(function(beer){
+        Beer.create(beer, function(err, createdBeer){
+           if(err){
+               console.log(err);
+           } else {
+               console.log("Beer " + createdBeer.name + " Created");
+           }
+        });
+    })
+       
     });
 }
 

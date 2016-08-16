@@ -1,6 +1,5 @@
 APP TODO LIST
 
-
 Macro Enhancements
 ==================
 1. Add Beer Update Routes

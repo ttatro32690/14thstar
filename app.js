@@ -40,8 +40,8 @@ app.use(function(req,res,next){
 app.set("view engine","ejs");
 
 // APP USES
-app.use(express.static(__dirname + "/public"));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
