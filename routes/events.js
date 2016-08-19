@@ -56,7 +56,7 @@ router.get("/:id/edit",function(req,res){
 });
 
 //UPDATE ROUTE
-router.put("/:id",function(req, res){
+router.put("/:id/",function(req, res){
     Event.findByIdAndUpdate(req.params.id, req.body.event, function(err, event){
        if(err){
            console.log(err);

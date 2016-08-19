@@ -7,7 +7,7 @@
 </div>
  
 <div class="container">
-	<form class="form-horizontal" action="/beer" method="POST">
+	<form action="/beer/<%= beer._id %>?_method=PUT" method="POST">
 		<div class="form-group">
 			<label for="beerName">Name</label>
 			<input type="text" class="form-control" name="beer[name]" id="beerName">
@@ -36,7 +36,7 @@
 			<label for="beerDesc">Description</label>
 			<textarea class="form-control" id="beerDesc" name="beer[description]" rows="3"></textarea>
 		</div>
-		<button type="submit" class="btn btn-primary btn-block">Submit</button>
+		<button type="submit" class="btn btn-primary btn-block">Update</button>
 	</form>
 </div>
  

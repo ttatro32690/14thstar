@@ -1,3 +1,43 @@
 <% include ../partials/header %>
 
+<div class="jumbotron">
+	<div class="container-fluid">
+		<h1>Update Beer Entry</h1>	
+	</div>
+</div>
+ 
+<div class="container">
+	<form class="form-horizontal" action="/beer/<%= beer._id %>?_method=PUT" method="POST">
+		<div class="form-group">
+			<label for="beerName">Name</label>
+			<input type="text" class="form-control" name="beer[name]" id="beerName" value="<%= beer.name %>">
+		</div>
+		<div class="form-group">
+			<label for="beerImage">Image</label>
+			<input type="text" class="form-control" name="beer[image]" id="beerImage" value="<%= beer.image %>">
+		</div>
+		<div class="form-group">
+			<label for="beerIbu">IBU</label>
+			<input type="text" class="form-control" name="beer[ibu]" id="beerIbu" value="<%= beer.ibu %>">
+		</div>
+		<div class="form-group">
+			<label for="beerAbv">ABV</label>
+			<input type="text" class="form-control" name="beer[abv]" id="beerAbv" value="<%= beer.abv %>">
+		</div>
+		<div class="form-group">
+			<label for="beerStyle">Style</label>
+			<input type="text" class="form-control" name="beer[style]" id="beerStyle" value="<%= beer.style %>">
+		</div>
+		<div class="form-group">
+			<label for="beerAvail">Availability</label>
+			<input type="text" class="form-control" name="beer[availability]" id="beerAvail" value="<%= beer.availability %>">
+		</div>
+		<div class="form-group">
+			<label for="beerDesc">Description</label>
+			<textarea class="form-control" id="beerDesc" name="beer[description]" rows="3"><%= beer.description %></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary btn-block">Submit</button>
+	</form>
+</div>
+
 <% include ../partials/footer %>
