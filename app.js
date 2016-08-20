@@ -15,8 +15,8 @@ mongoose.connect("mongodb://localhost/fourteenthstar");
 var Star = require("./models/star");
 
 // // Temporary Requirements
-//var seedDB = require("./seeds");
-//seedDB();
+// var seedDB = require("./seeds");
+// seedDB();
 
 //MIDDLEWARE
 app.use(function(req,res,next){

@@ -4,27 +4,47 @@
 	<div class="col-md-3"></div>
 	<div class="col-md-6">
 		<div class="panel panel-default">
-			<div class="panel-heading"><%= beer.name %>
-			<a href="/beer/<%= beer._id %>/edit" class="btn btn-default">Edit</a>
-            <form id="delete-form" action="/beer/<%= beer._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-danger">Delete</button>
-            </form>
-			<a href="/beer" class="btn btn-default">Back To Beer List</a>
-			</div>
-			<div class="panel-body">
+			<div class="panel-heading">
 				<div class="row">
-					<div class="col-xs-6">
-						<img src="<%= beer.image %>">	
-					</div>
-					<div class="col-xs-6">
-						<p>IBUs: <%= beer.ibu %></p>
-						<p>ABV: <%= beer.abv %></p>
-						<p>Style: <%= beer.style %></p>
-						<p>Availability: <%= beer.availability %></p>
-						<p>Description: <%= beer.description %></p>
-					</div>
+					<h2>
+						<%= beer.name %>
+						<span><a href="/beer" class="btn btn-default pull-right">Back To Beer List</a></span>
+					</h2>
 				</div>
 			</div>
+			
+			<ul class="list-group">
+				<li class="list-group-item">
+					<div class="panel-body">
+	                    <div class="form-inline">
+	                    	<div class="form-group">
+	                    		<a href="/beer/<%= beer._id %>/edit" class="btn btn-default">Edit</a>
+	                    	</div>
+	                    	<div class="form-group">
+				                <form id="delete-form" action="/beer/<%= beer._id %>?_method=DELETE" method="POST">
+				                    <button class="btn btn-default">Delete</button>
+				                </form>
+	                    	</div>
+	                    </div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-6">
+								<img src="<%= beer.image %>">	
+							</div>
+							<div class="col-xs-6">
+								<p>IBUs: <%= beer.ibu %></p>
+								<p>ABV: <%= beer.abv %></p>
+								<p>Style: <%= beer.style %></p>
+								<p>Availability: <%= beer.availability %></p>
+								<p>Description: <%= beer.description %></p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
 		</div>
 	<div class="col-md-3"></div>
 	</div>
