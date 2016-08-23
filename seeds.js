@@ -1,6 +1,9 @@
 var Star = require("./models/star");
 var Event = require("./models/event");
 var Beer = require("./models/beer");
+var User = require("./models/beer");
+
+var passport = require("passport");
 
 var starData = {
     name: "14th Star Brewing Company",
@@ -73,20 +76,24 @@ var eventData = [
     }
 ];
 
+var userData = {
+  username: "fourteenthstar_admin",
+  password: "14$t@r"
+};
+
 function seedDB(){
     Star.remove({},function(err){
         if(err){
           console.log(err);  
         } else {
             console.log("Removed Main Brewery Data");
-        }
-    });
-    
-    Star.create(starData,function(err,star){
-        if(err){
-            console.log(err);
-        } else {
-            console.log("Brewery Data Initialized");
+            Star.create(starData,function(err,star){
+                if(err){
+                    console.log(err);
+                } else {
+                    console.log("Brewery Data Initialized");
+                }
+            });
         }
     });
     
@@ -95,17 +102,16 @@ function seedDB(){
             console.log(err);
         } else {
             console.log("Removed Brewery Event Data");
+            eventData.forEach(function(event){
+               Event.create(event,function(err, createdEvent){
+                  if(err){
+                      console.log(err);
+                  } else {
+                      console.log("Event " + createdEvent.name + " Created");
+                  }
+               });
+            });
         }
-    });
-    
-    eventData.forEach(function(event){
-       Event.create(event,function(err, createdEvent){
-          if(err){
-              console.log(err);
-          } else {
-              console.log("Event " + createdEvent.name + " Created");
-          }
-       });
     });
     
     Beer.remove({},function(err){
@@ -113,18 +119,25 @@ function seedDB(){
            console.log(err);
        } else {
            console.log("Beers Removed");
+            beerData.forEach(function(beer){
+                Beer.create(beer, function(err, createdBeer){
+                   if(err){
+                       console.log(err);
+                   } else {
+                       console.log("Beer " + createdBeer.name + " Created");
+                   }
+                });
+            });
        }
        
-    beerData.forEach(function(beer){
-        Beer.create(beer, function(err, createdBeer){
-           if(err){
-               console.log(err);
-           } else {
-               console.log("Beer " + createdBeer.name + " Created");
-           }
-        });
-    })
-       
+    });
+    
+    User.remove({},function(err){
+        if(err){
+            console.log(err);
+        } else {
+            console.log("Users Removed");
+        }
     });
 }
 

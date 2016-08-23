@@ -25,6 +25,13 @@
   </div>
 </nav>
 
+<% if(admin) { %>
+<ol class="breadcrumb">
+  <li>Signed in as Administrator</li>
+  <li><a href="/logout" class="btn">Log Out</a></li>
+</ol>
+<% } %>
+
 <!--Menu Items-->
 <div id="list" class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
     <div class="panel panel-default">

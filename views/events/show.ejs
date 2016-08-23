@@ -6,40 +6,51 @@
 		<div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4><%= event.name %></h4>
-                    <div class="form-inline">
-                        <div class="form-group">
-                            <a href="/events/<%= event._id %>/edit" type="button" class="btn btn-default">Edit</a>
-                        </div>
-                        <div class="form-group">
-                           <form class="form-inline" action="/events/<%= event._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-default">Delete</button>
-                            </form> 
-                        </div>
-                        <div class="form-group">
-                            <a href="/events/<%= event._id %>" type="button" class="btn btn-default">View</a>
-                        </div>
-                    </div>
+                    <h4>
+                        <%= event.name %>
+                        <span><a href="/events" class="btn btn-default pull-right">Back to Events</a></span>
+                    </h4>
                 </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img class="thumbnail img-rounded" src="<%= event.image %>">
-                        </div>
-                        <div class="container-fluid">
-                            <div class="col-md-8 panel panel-default">
-                                <address>
-                                    <strong>Date:</strong> <%= moment(event.date).format("MM/DD/YY"); %><br>
-                                    <strong>Time:</strong> <%= event.beginTm %> - <%= event.endTm %><br>
-                                    <strong>Location:</strong> <%= event.location %><br>
-                                    <strong>Description:</strong> <%= event.description %>
-                                </address>
+                    
+                    <ul class="list-group">
+                        <% if(admin) { %>
+                        <li class="list-group-item">
+                            <div class="panel-body">
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <a href="/events/<%= event._id %>/edit" type="button" class="btn btn-default">Edit</a>
+                                    </div>
+                                    <div class="form-group">
+                                       <form class="form-inline" action="/events/<%= event._id %>?_method=DELETE" method="POST">
+                                            <button class="btn btn-default">Delete</button>
+                                        </form> 
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                        <% } %>
+                        <li class="list-group-item">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img class="thumbnail img-rounded" src="<%= event.image %>">
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="col-md-8 panel panel-default">
+                                            <address>
+                                                <strong>Date:</strong> <%= moment(event.date).format("MM/DD/YY"); %><br>
+                                                <strong>Time:</strong> <%= event.beginTm %> - <%= event.endTm %><br>
+                                                <strong>Location:</strong> <%= event.location %><br>
+                                                <strong>Description:</strong> <%= event.description %>
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-		</div>
 		<div class="col-md-2"></div>
 	</div>
 </div>

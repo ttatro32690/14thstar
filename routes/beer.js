@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Beer = require("../models/beer");
+var middleware = require("../middleware/index");
 
 //INDEX Route
 router.get("/",function(req,res){
@@ -15,13 +16,13 @@ router.get("/",function(req,res){
 });
 
 //NEW Route
-router.get("/new",function(req,res){
+router.get("/new", middleware.isLoggedIn, function(req,res){
 	res.render("beer/new");
 });
 
 //CREATE Route
 router.post("/", function(req,res){
-	Beer.create(req.body.beer, function(err, beer){
+	Beer.create(req.body.beer, middleware.isLoggedIn, function(err, beer){
 	if(err){
 		console.log(err);
 	} else {
@@ -43,7 +44,7 @@ router.get("/:id",function(req,res){
 });
 
 //EDIT Route
-router.get("/:id/edit",function(req,res){
+router.get("/:id/edit", middleware.isLoggedIn, function(req,res){
 	
 	Beer.findById(req.params.id, function(err, beer){
 		if(err){
@@ -55,7 +56,7 @@ router.get("/:id/edit",function(req,res){
 });
 
 //UPDATE ROUTE
-router.put("/:id/",function(req, res){
+router.put("/:id/", middleware.isLoggedIn, function(req, res){
     Beer.findByIdAndUpdate(req.params.id, req.body.beer, function(err, beer){
        if(err){
            console.log(err);
@@ -67,7 +68,7 @@ router.put("/:id/",function(req, res){
 });
 
 //DESTROY Route
-router.delete("/:id",function(req,res){
+router.delete("/:id", middleware.isLoggedIn, function(req,res){
 	Beer.findByIdAndRemove(req.params.id,function(err){
 		if(err){
 			console.log(err);

@@ -14,20 +14,22 @@
 			</div>
 			
 			<ul class="list-group">
-				<li class="list-group-item">
-					<div class="panel-body">
-	                    <div class="form-inline">
-	                    	<div class="form-group">
-	                    		<a href="/beer/<%= beer._id %>/edit" class="btn btn-default">Edit</a>
-	                    	</div>
-	                    	<div class="form-group">
-				                <form id="delete-form" action="/beer/<%= beer._id %>?_method=DELETE" method="POST">
-				                    <button class="btn btn-default">Delete</button>
-				                </form>
-	                    	</div>
-	                    </div>
-					</div>
-				</li>
+            	<% if(admin) {%>
+					<li class="list-group-item">
+						<div class="panel-body">
+		                    <div class="form-inline">
+		                    	<div class="form-group">
+		                    		<a href="/beer/<%= beer._id %>/edit" class="btn btn-default">Edit</a>
+		                    	</div>
+		                    	<div class="form-group">
+					                <form id="delete-form" action="/beer/<%= beer._id %>?_method=DELETE" method="POST">
+					                    <button class="btn btn-default">Delete</button>
+					                </form>
+		                    	</div>
+		                    </div>
+						</div>
+					</li>
+				<% } %>
 				<li class="list-group-item">
 					<div class="panel-body">
 						<div class="row">

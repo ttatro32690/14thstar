@@ -1,6 +1,8 @@
 //PACKAGE Requirements
 var methodOverride = require("method-override"),
+     LocalStrategy = require("passport-local"),
         bodyParser = require("body-parser"),
+          passport = require("passport"),
           mongoose = require("mongoose"),
            express = require("express"),
             moment = require("moment");
@@ -8,17 +10,22 @@ var methodOverride = require("method-override"),
 // APP DECLARATION    
 var app = express();
 
-//DATABASE CONNECTION
-mongoose.connect("mongodb://localhost/fourteenthstar");
-
 // SCHEMA Requirements
+var User = require("./models/user");
 var Star = require("./models/star");
 
-// // Temporary Requirements
-// var seedDB = require("./seeds");
-// seedDB();
+app.use(require("express-session")({
+    secret: "annie is the best dog",
+    resave: false,
+    saveUninitialized: false
+}));
 
-//MIDDLEWARE
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use(function(req,res,next){
     Star.findOne({},function(err, foundStar){
         if(err){
@@ -36,6 +43,14 @@ app.use(function(req,res,next){
    next();
 });
 
+app.use(function(req, res, next){
+    res.locals.admin = req.user;
+    next();
+});
+
+//DATABASE CONNECTION
+mongoose.connect("mongodb://localhost/fourteenthstar");
+
 // APP SETS
 app.set("view engine","ejs");
 
@@ -52,6 +67,10 @@ var beerRoutes = require("./routes/beer");
    app.use(indexRoutes);
    app.use("/events",eventRoutes);
    app.use("/beer",beerRoutes);
+
+// Temporary Requirements
+//  var seedDB = require("./seeds");
+//  seedDB();
 
 app.listen(process.env.PORT,process.env.IP,function(){
    console.log("The server has started...");
