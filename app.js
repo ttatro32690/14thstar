@@ -68,7 +68,7 @@ var beerRoutes = require("./routes/beer");
    app.use("/events",eventRoutes);
    app.use("/beer",beerRoutes);
 
-// Temporary Requirements
+//Temporary Requirements
 //  var seedDB = require("./seeds");
 //  seedDB();
 

@@ -61,8 +61,8 @@ var eventData = [
     	image: "https://www.vtbeer.org/wp-content/uploads/2015/05/Vermont-Beer-Week-2015-300x300.jpg",
     	location: "Burlington, VT",
     	date: "2016-10-01",
-    	beginTm: "7PM",
-    	endTm: "10PM",
+    	beginTm: "17:00",
+    	endTm: "20:00",
     	description: "Bacon ipsum dolor amet biltong ground round ham, shankle turducken meatloaf pork chop jerky leberkas. Ribeye sausage pork chop pastrami, pig pork belly short ribs chicken tongue fatback beef ribs chuck. Filet mignon chicken turducken pork drumstick brisket. Boudin biltong filet mignon chuck venison. Prosciutto kielbasa picanha flank pancetta meatloaf tri-tip cupim cow swine corned beef. Picanha corned beef chicken cow landjaeger prosciutto filet mignon rump. Jowl spare ribs pork, kielbasa pig bacon andouille shoulder ground round ham hock tri-tip."
     },
     {
@@ -70,8 +70,8 @@ var eventData = [
         image: "http://i1289.photobucket.com/albums/b502/HearthAndHomeRealty/burlington-beer-festival_zps5cf0ae2b.jpg~original",
         location: "Burlington, VT",
         date: "2016-07-15",
-        beginTm: "11AM",
-        endTm: "5PM",
+        beginTm: "11:00",
+        endTm: "17:00",
         description: "Bacon ipsum dolor amet biltong ground round ham, shankle turducken meatloaf pork chop jerky leberkas. Ribeye sausage pork chop pastrami, pig pork belly short ribs chicken tongue fatback beef ribs chuck. Filet mignon chicken turducken pork drumstick brisket. Boudin biltong filet mignon chuck venison. Prosciutto kielbasa picanha flank pancetta meatloaf tri-tip cupim cow swine corned beef. Picanha corned beef chicken cow landjaeger prosciutto filet mignon rump. Jowl spare ribs pork, kielbasa pig bacon andouille shoulder ground round ham hock tri-tip."
     }
 ];

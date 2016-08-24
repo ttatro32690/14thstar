@@ -39,7 +39,7 @@
                                         <div class="col-md-8 panel panel-default">
                                             <address>
                                                 <strong>Date:</strong> <%= moment(event.date).format("MM/DD/YY"); %><br>
-                                                <strong>Time:</strong> <%= event.beginTm %> - <%= event.endTm %><br>
+                                                <strong>Time:</strong> <%= moment(event.beginTm, "HH:mm").format("hh:mm A") %> - <%= moment(event.endTm, "HH:mm").format("hh:mm A") %><br>
                                                 <strong>Location:</strong> <%= event.location %><br>
                                                 <strong>Description:</strong> <%= event.description %>
                                             </address>
