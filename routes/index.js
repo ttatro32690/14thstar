@@ -1,10 +1,22 @@
 var express = require("express");
 var router = express.Router();
 var passport = require("passport");
+
 //var User = require("../models/user");
 
-router.get("/",function(req,res){
-    res.render("main");
+router.get("/", function(req,res){
+
+    if(!req.cookies.siteVisited){
+        res.cookie("siteVisited", false);
+        // res.locals.star.siteVisited = false;
+        // console.log(res.locals.star.siteVisited);
+        res.render("initial");
+    } else {
+        res.cookie("siteVisited", true);
+        // res.locals.star.siteVisited = true;
+        // console.log(res.locals.star.siteVisited);
+        res.render("main");   
+    }
 });
 
 router.get("/about",function(req,res){

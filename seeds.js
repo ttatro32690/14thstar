@@ -3,7 +3,7 @@ var Event = require("./models/event");
 var Beer = require("./models/beer");
 var User = require("./models/beer");
 
-var passport = require("passport");
+// var passport = require("passport");
 
 var starData = {
     name: "14th Star Brewing Company",

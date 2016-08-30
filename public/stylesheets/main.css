@@ -65,3 +65,11 @@ h1 > span{
 #content{
     display: none;
 }
+
+#initial_visit{
+    text-align: center;
+}
+
+#main_logo{
+    margin: 0;
+}

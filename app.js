@@ -1,6 +1,7 @@
 //PACKAGE Requirements
 var methodOverride = require("method-override"),
      LocalStrategy = require("passport-local"),
+      cookieParser = require("cookie-parser"),
         bodyParser = require("body-parser"),
           passport = require("passport"),
           mongoose = require("mongoose"),
@@ -27,6 +28,8 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use(cookieParser());
 
 // Middleware
 app.use(middleware.useStar);

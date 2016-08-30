@@ -31,20 +31,22 @@ function menuOnClick() {
 
 //Will be the permanent init page once it is completed.
 function initPage() {
-	$(".navbar-header").animate({
-		"width": "100%"
-	}, {
-		duration: 500,
-		specialEasing: {
-			"width": "easeInOutCirc"
-		},
-		complete: function() {
-			$("#content").fadeIn({
-				duration: 1000,
-				easing: "easeInOutCirc",
-			});
-		}
-	});
+	if($(".navbar-header").length > 0){
+	
+		$(".navbar-header").animate({
+			"width": "100%"
+		}, {
+			duration: 500,
+			specialEasing: {
+				"width": "easeInOutCirc"
+			},
+			complete: initContent()
+		});
+		
+	} else {
+		$("#content").css({"margin-top": "100px"});
+		initContent();
+	}
 }
 
 //Used as a temporary page initialization to save time for now
@@ -54,4 +56,11 @@ function noAnimationInit(){
 	});
 	
 	$("#content").fadeIn();
+}
+
+function initContent(){
+	$("#content").fadeIn({
+		duration: 1000,
+		easing: "easeInOutCirc"
+	});
 }
