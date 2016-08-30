@@ -10,8 +10,22 @@
             
         <h1><%= star.name %></h1>
         <h3>American Ales founded Overseas</h3>
-                <hr>
-                <a href="/about"><button class="btn btn-primary">Hear Our Story</button></a>
+            <hr>
+            <a href="/about"><button class="btn btn-primary">Hear Our Story</button></a>
+            <hr>
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-2">
+                    <a href="<%= star.twitterUrl %>"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="<%= star.facebookUrl %>"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>    
+                </div>
+                <div class="col-xs-2">
+                    <a href="<%= star.instaUrl %>"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
         </div>
         <div class="col-md-1"></div>
     </div>

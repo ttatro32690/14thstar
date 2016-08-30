@@ -1,14 +1,3 @@
-/*  Primary: 500: #009688*/
-
-
-/*  Secondary: 700: #00776A*/
-
-
-/*  Accent: 300: #20A294*/
-
-
-/*  Accent: Alternate 500: #F16600*/
-
 body {
     font-family: Source Sans Pro;
 }
@@ -22,7 +11,7 @@ h1 > span{
 }
 
 .thumbnail{
-    padding:0;
+    padding: 0;
 }
 
 .navbar-header{
