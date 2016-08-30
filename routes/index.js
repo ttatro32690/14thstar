@@ -1,29 +1,28 @@
 var express = require("express");
 var router = express.Router();
 var passport = require("passport");
+var middleware = require("../middleware/index");
 
 //var User = require("../models/user");
 
-router.get("/", function(req,res){
-
-    if(!req.cookies.siteVisited){
-        res.cookie("siteVisited", false);
-        // res.locals.star.siteVisited = false;
-        // console.log(res.locals.star.siteVisited);
+router.get("/", function(req, res){
+    if(!req.cookies.siteVisited || req.cookies.siteVisited === false){
         res.render("initial");
     } else {
-        res.cookie("siteVisited", true);
-        // res.locals.star.siteVisited = true;
-        // console.log(res.locals.star.siteVisited);
-        res.render("main");   
+        res.render("main");
     }
 });
 
-router.get("/about",function(req,res){
+router.post("/", function(req, res){
+    res.cookie("siteVisited", true);
+    res.redirect("/");
+});
+
+router.get("/about", middleware.showInitial, function(req,res){
     res.render("about");
 });
 
-router.get("/visit",function(req,res){
+router.get("/visit", middleware.showInitial, function(req,res){
     res.render("visit");
 });
 
@@ -32,14 +31,14 @@ router.get("/login", function(req,res){
 });
 
 // Login Validation Route
-router.post("/login",passport.authenticate("local",
+router.post("/login", passport.authenticate("local",
     {
         successRedirect: "/",
         failureRedirect: "/login"
     }), function(req, res){
 });
 
-router.get("/logout",function(req,res){
+router.get("/logout", function(req,res){
     req.logout();
     res.redirect("/");
 });

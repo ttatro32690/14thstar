@@ -34,4 +34,22 @@ middlewareObj.useAuthorizedUser = function useAuthorizedUser(req, res, next){
     next();
 };
 
+middlewareObj.siteVisited = function siteVisited(req, res, next){
+    if(!req.cookies.siteVisited){
+        res.locals.siteVisited = false;
+    } else {
+        res.locals.siteVisited = true;
+    }
+    
+    next();
+};
+
+middlewareObj.showInitial = function showInitial(req, res, next){
+    if(!res.locals.siteVisited || res.locals.siteVisited === false){
+        res.redirect("/");
+    }  else {
+        next();
+    }
+};
+
 module.exports = middlewareObj;

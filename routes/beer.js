@@ -4,7 +4,7 @@ var Beer = require("../models/beer");
 var middleware = require("../middleware/index");
 
 //INDEX Route
-router.get("/",function(req,res){
+router.get("/", middleware.showInitial, function(req,res){
 	Beer.find({},function(err, beers){
 		if(err){
 			console.log(err);
@@ -21,7 +21,7 @@ router.get("/new", middleware.isLoggedIn, function(req,res){
 });
 
 //CREATE Route
-router.post("/", function(req,res){
+router.post("/", middleware.isLoggedIn, function(req,res){
 	Beer.create(req.body.beer, middleware.isLoggedIn, function(err, beer){
 	if(err){
 		console.log(err);
@@ -33,7 +33,7 @@ router.post("/", function(req,res){
 });
 
 //SHOW Route
-router.get("/:id",function(req,res){
+router.get("/:id", middleware.showInitial, function(req,res){
 	Beer.findById(req.params.id,function(err,beer){
 	if(err){
 		res.redirect("back");		

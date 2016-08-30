@@ -35,6 +35,7 @@ app.use(cookieParser());
 app.use(middleware.useStar);
 app.use(middleware.useAuthorizedUser);
 app.use(middleware.useMoment);
+app.use(middleware.siteVisited);
 
 // DATABASE CONNECTION
 mongoose.connect("mongodb://localhost/fourteenthstar");

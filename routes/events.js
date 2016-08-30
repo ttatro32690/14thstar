@@ -4,7 +4,7 @@ var Event = require("../models/event");
 var middleware = require("../middleware/index");
 
 //INDEX ROUTE
-router.get("/",function(req,res){
+router.get("/", middleware.showInitial, function(req,res){
     Event.find({},function(err,events){
         if(err){
             console.log(err);
@@ -32,8 +32,7 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 });
 
 //SHOW ROUTE
-
-router.get("/:id",function(req,res){
+router.get("/:id", middleware.showInitial, function(req,res){
    Event.findById(req.params.id,function(err,foundEvent){
        if(err){
            console.log(err);
