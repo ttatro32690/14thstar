@@ -1,3 +1,6 @@
+//This project was designed as a real world example for a brewery website redo.
+//Please see ReadMe for additional details
+
 //PACKAGE Requirements
 var methodOverride = require("method-override"),
      LocalStrategy = require("passport-local"),
